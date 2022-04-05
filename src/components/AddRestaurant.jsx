@@ -22,7 +22,7 @@ const AddRestaurant = () => {
     } catch (error) {
       console.log(error);
     }
-    navigate("/");
+    window.location.reload();
   };
 
   return (
