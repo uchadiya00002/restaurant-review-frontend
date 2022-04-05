@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import RestaurantFinder from "../apis/RestaurantFinder";
 import { RestaurantsContext } from "../context/RestaurantContext";
 
@@ -7,9 +8,10 @@ const AddRestaurant = () => {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [priceRange, setPriceRange] = useState("Price Range");
+  let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     try {
       const response = await RestaurantFinder.post("/", {
         name,
@@ -20,6 +22,7 @@ const AddRestaurant = () => {
     } catch (error) {
       console.log(error);
     }
+    navigate("/");
   };
 
   return (
