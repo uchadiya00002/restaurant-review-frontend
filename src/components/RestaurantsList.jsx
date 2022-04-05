@@ -7,6 +7,7 @@ import StarRating from "./StarRating";
 const RestaurantsList = (props) => {
   const { restaurants, setRestaurants } = useContext(RestaurantsContext);
   let navigate = useNavigate();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
